@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>C语言笔试题错题薄弱点归纳 | Rohdea&#39;s blog</title>
+    <meta name="author" content="Rohdea" />
+    <meta name="version" content="1.0.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="以下叙述中不正确的是（B） D A）在不同的函数中可以使用相同名字的变量 B）函数中的形式参数是在栈中保存 C）在一个函数内定义的变量只在本函数范围内有效 D）在一个函数内复合语句中定义的变量在本函数范围内有效  本题错选了B是因为对形式参数的定义不明确，只想到了形式参数不是实际存在的， 而忽略了形式参数的存在就是为了接受实参传来的值，进而保存在栈中。 而D就错的比较明显了，复合语句即大括号中的语句， 显然其作用域只在大括号所在范围内。void example()12..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Rohdea&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Rohdea&#39;s blog</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/#tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/#atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/#about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#-1"><span class="toc-number">1.1.</span> <span class="toc-text"></span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            C语言笔试题错题薄弱点归纳
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2018/08/07/C语言笔试题错题薄弱点归纳/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2018-08-07T00:00:00.000Z" itemprop="datePublished">2018-08-07</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <ol>
+<li><p>以下叙述中不正确的是（B） D</p>
+<p> A）在不同的函数中可以使用相同名字的变量</p>
+<p> B）函数中的形式参数是在栈中保存</p>
+<p> C）在一个函数内定义的变量只在本函数范围内有效</p>
+<p> D）在一个函数内复合语句中定义的变量在本函数范围内有效</p>
+ <a id="more"></a>
+<p> 本题错选了B是因为对形式参数的定义不明确，只想到了形式参数不是实际存在的，<br> 而忽略了形式参数的存在就是为了接受实参传来的值，进而保存在栈中。<br> 而D就错的比较明显了，复合语句即大括号中的语句，<br> 显然其作用域只在大括号所在范围内。</p>
+</li>
+</ol>
+<ol start="2">
+<li><figure class="highlight c"><figcaption><span>void example()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">char</span> acNew\[<span class="number">20</span>\];</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        acNew\[i\] = <span class="string">'0'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\\n"</span> ,<span class="built_in">strlen</span>(acNew));</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  以上代码的输出结果为（A）D<br> A）0 B）5 C）6 D）不确定</p>
+<p> 这一题是错在了错把字符’0’当成了’/0’。<br> 由于strlen()函数是通过判断’/0’来判断字符串是否结束，<br> 数组acNew[20]并没有初始化，只给前5个元素赋了字符’0’，其十进制值为48。<br> 因此strlen()函数返回的值是一个大于等于5的不确定的值，因为函数不知道在哪里会遇到’/0’。</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>全局变量可以定义在被多个.c文件包含着的头文件中（A）B</p>
+<p> A）正确          B）错误</p>
+<p> 编译器在编译程序时，会有两个动作，一是编译每一个文件生成类似于*.obj的文件，然后链接这些文件。<br> 因此，在头文件中的全局变量将会被多次定义，进而产生错误。<br> 所以我们要避免在头文件中定义全局变量。</p>
+</li>
+</ol>
+<ol start="4">
+<li><p>设有以下宏定义：</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 4</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Y(n)  ((N+2)\*n)   <span class="comment">//这种定义在编程规范中是严格禁止的</span></span></span><br></pre></td></tr></table></figure>
+<p> 则执行语句：z = 2 * （N + Y（5+1））;后，z的值为（）</p>
+<p> A）出错          B）60               C）48                 D）70</p>
+<p> 宏定义的问题，大多都是括号的问题，这个做错是粗心了。<br> z = 2 * （4  + （（4+2）* 5 + 1）<br> 因此在使用宏的时候一定要注意括号。</p>
+</li>
+</ol>
+<ol start="5">
+<li>有如下宏定义和结构定义</li>
+<li><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX\_SIZE  A+B</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> \_<span class="title">Record</span>\_<span class="title">Struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> Env\_Alarm\_ID : <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> Para1 : <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> state;</span><br><span class="line">    <span class="keyword">unsigned</span> avail : <span class="number">1</span>;</span><br><span class="line">&#125;\*Env\_Alarm\_Record;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> \_<span class="title">Record</span>\_<span class="title">Struct</span> \*<span class="title">pointer</span> = (<span class="title">struct</span> \_<span class="title">Record</span>\_<span class="title">Struct</span>\*)<span class="title">malloc</span>(<span class="title">sizeof</span>(<span class="title">struct</span> \_<span class="title">Record</span>\_<span class="title">Struct</span>) \* <span class="title">MAX</span>\_<span class="title">SIZE</span>);</span></span><br></pre></td></tr></table></figure>
+<p> 当A=2， B=3时，pointer分配（C）个字节的空间。   D<br> A）20              B）15             C）11                D）9</p>
+<p> 这一题是因为对位段的不熟悉以及粗心弄错宏定义的括号从而选错答案，<br> 该结构体在内存中的存储方式如下图所示，</p>
+<h5 id=""><a href="#" class="headerlink" title=""></a><img src="http://192.168.195.195/wordpress/wp-content/uploads/2018/08/TIM截图20180807201056.png" alt=""></h5><p> 由图可知该结构体在内存中占3个字节的内存空间， 因此sizeof(struct _Record_Struct)为3， 从而 3 * A + B ，即9。</p>
+</li>
+</ol>
+<ol start="7">
+<li>在X86，VC++6.0环境下，有下列程序</li>
+<li><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> c;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> uc;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">short</span> us;</span><br><span class="line">  c = <span class="number">128</span>;</span><br><span class="line">  uc = <span class="number">128</span>;</span><br><span class="line">  us = c + uc;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"0x%x "</span>, us);</span><br><span class="line">  us = (<span class="keyword">unsigned</span> <span class="keyword">char</span>)c + uc;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"0x%x "</span>, us);</span><br><span class="line">  us = c + (<span class="keyword">char</span>)uc;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"0x%x "</span>, us);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 输出结果为（C）A<br> A）0x0  0x100  0xff00<br> B) 0x100  0x100  0xff00<br> C) 0x100  0x100  0x0<br> D) 0x0  0x100  0x0</p>
+<p> 本题是因为对类型转换不熟悉，分析过程如下：<br> char的范围是 -128 ~ 127<br> unsigned char范围是 0 ~ 255<br> unsigned short范围是 0 ~ 65535<br> c = 128；<br> 128编译器会把128当作一个整形变量，占用4个字节，即32位<br> 0000 0000 0000 0000 0000 0000 1000 0000<br> 在char类型中，1000 0000即表示-128。<br> uc = 128；<br> 没什么说的，取128二进制的后8位得128；<br> 然后就是us：</p>
+<p> us = c + uc；<br> 运算时将转为32位，c为负数，进而前面补符号位1，无符号数uc前面补0。<br> c： 1111 1111 1111 1111 1111 1111 1000 0000<br> uc：0000 0000 0000 0000 0000 0000 1000 0000<br> 相加得</p>
+<pre><code>0000 0000 0000 0000 0000 0000 0000 0000 
+</code></pre><p> 因为us占2个字节，因此前面补0，即此时的us为0x0</p>
+<p> us = （unsigned char）c + uc;<br> 当c被强制类型转换为无符号后，前面补0，从而有下面结果：<br> c:  0000 0000 0000 0000 0000 0000 1000 0000<br> uc：0000 0000 0000 0000 0000 0000 1000 0000<br> 相加得：</p>
+<pre><code>0000 0000 0000 0000 0000 0001 0000 0000
+</code></pre><p> 因此us为0000 0001 0000 0000，即十六进制0x100</p>
+<p> us = c + （char）uc；<br> c： 1111 1111 1111 1111 1111 1111 1000 0000<br> uc：1111 1111 1111 1111 1111 1111 1000 0000<br> 相加</p>
+<pre><code>1111 1111 1111 1111 1111 1111 0000 0000 
+</code></pre><p> 即us为0xff00</p>
+</li>
+</ol>
+<ol start="9">
+<li><figure class="highlight c"><figcaption><span>unsigned short \*pucCharArray\[10\]\[10\];</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">union</span> unRec</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">long</span> ullndex;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">short</span> usLevel\[<span class="number">7</span>\];</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> ucPos;</span><br><span class="line">&#125;REC\_S;</span><br><span class="line">REC\_S stMax, \*pstMax;</span><br><span class="line">四字节对齐方式时：</span><br><span class="line"><span class="keyword">sizeof</span>(pucCharArray) = <span class="number">40</span>  <span class="number">400</span></span><br><span class="line"><span class="keyword">sizeof</span>(stMax) = <span class="number">20</span>  <span class="number">16</span></span><br><span class="line"><span class="keyword">sizeof</span>(pstMax) = <span class="number">4</span></span><br><span class="line"><span class="keyword">sizeof</span>(\*pstMax) = <span class="number">20</span>  <span class="number">16</span></span><br></pre></td></tr></table></figure>
+<p> 本题考察指针数组在内存中的存储，以及联合在内存中存在的内存对齐。<br> pucCharArray为指针类型，每一个元素占用4个字节的空间，<br> 并且这是一个二维数组，且sizeof()内只包含数组名，<br> 因此是求整个数组占用的空间大小，即4*10*10 =400.<br> stMax是个联合，因此其占用空间大小为其中最大变量所占用的空间大小，<br> 即 usLevel[7]占用14个字节，又因为四字节对齐，所以其占用大小为16个字节。<br> pstMax为一个指针变量，占用4个字节。<br> *pstMax虽然没有指向某个REC_S，然而其指向的空间大小还是可以求的，即一个RESC_S所占的空间大小。</p>
+</li>
+</ol>
+<ol start="10">
+<li><figure class="highlight c"><figcaption><span>struct tagAAA</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> ucld : <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> ucPara0 : <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> ucState : <span class="number">6</span>;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> ucTail : <span class="number">4</span>;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> ucAvail;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> ucTail2 : <span class="number">4</span>;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> ucData;</span><br><span class="line">&#125;AAA\_S;</span><br></pre></td></tr></table></figure>
+<p>问：AAA_S在分别为1字节对齐（char）和四字节对齐（int）的情况下，占用的空间大小是：19，20   6，6</p>
+<p>本题主要考察结构体的内存对齐现象，以及位段的掌握。<br>内存对齐是典型的以空间换时间的方法，<br>若不内存不对齐，找这个变量有时就需要两次访问，而如果内存对齐，则可以一次就访问到。<br>内存中储存的顺序如下图：</p>
+<h6 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://192.168.195.195/wordpress/wp-content/uploads/2018/08/TIM截图20180807211031.png" alt=""></h6><p>从左至右，从上至下，每种不同颜色依次代表结构体中不同的变量。 可以得知该结构体所占空间大小为6个字节。</p>
+</li>
+</ol>
+<ol start="11">
+<li><figure class="highlight plain"><figcaption><span>ENUM\_A</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  X1,</span><br><span class="line">  Y1,</span><br><span class="line">  Z1 = 255,</span><br><span class="line">  A1,</span><br><span class="line">  B1</span><br><span class="line">&#125;;</span><br><span class="line">enum ENUM\_A enumA = Y1;</span><br><span class="line">enum ENUM\_A enumB = B1;</span><br></pre></td></tr></table></figure>
+<p>则enumA =             ，enumB =</p>
+<p>本题考察枚举。<br>枚举的第一个变量一定是从0开始，因此：<br>X1 = 0<br>Y1 = 1<br>由于Z1赋值为255，<br>因此<br>A1 = 256<br>B1 = 257</p>
+</li>
+</ol>
+<ol start="12">
+<li>以下程序的执行结果为<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack（4）</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> puc\[<span class="number">4</span>\];</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">tagPIM</span></span></span><br><span class="line"><span class="class">    &#123;</span> </span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span> ucPiml;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span> ucData0 : <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span> ucData1 : <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span> ucData2 : <span class="number">3</span>;</span><br><span class="line">    &#125;\*pstPimData;</span><br><span class="line">    pstPimData = (struct tagPIM\*)puc;</span><br><span class="line">    <span class="built_in">memset</span>(puc,<span class="number">0</span>,<span class="number">4</span>);</span><br><span class="line">    pstPimData-&gt;ucPiml = <span class="number">2</span>;</span><br><span class="line">    pstPimData-&gt;ucData0 = <span class="number">3</span>;</span><br><span class="line">    pstPimData-&gt;ucData1 = <span class="number">4</span>;</span><br><span class="line">    pstPimData-&gt;ucData2 = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%02x %02x %02x %02x\\n"</span>, puc\[<span class="number">0</span>\],puc\[<span class="number">1</span>\],puc\[<span class="number">2</span>\],puc\[<span class="number">3</span>\]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>本题主要考察位段，puc\[4\]长度为4个字节，
+结构体tagPIM中ucPiml占用1个字节的内存空间，
+ucData0，ucData1，ucData2分别占用1位，2位，3位，
+由于结构体内存对齐，因此这三个变量总共占用1个字节
+2 0000 0000 0000 0000 0000 0000 0000 0010
+当给pstPimData-&gt;ucPiml赋值时，取（int)2 的1字节0000 0010，即2
+所以puc\[0\]为02，
+3 0000 0000 0000 0000 0000 0000 0000 0011
+当给pstPimData-&gt;ucData0赋值时，取(int)3的1位得1，
+4 0000 0000 0000 0000 0000 0000 0000 0100
+给pstPimData-&gt;ucData1赋值时，取(int)4的2位得00，
+5 0000 0000 0000 0000 0000 0000 0000 0101
+给pstPimData-&gt;ucData2赋值时，取(int)5的3位得101，
+由于标准没有规定位段在在一个字节中是从左向右存储或是从右向左存储，
+我所使用的平台中位段的使用中是由高地址向低地址依次占用的，前两位因为内存对齐浪费掉，
+因此，第二个字节中存储的数据为 0010 1001，即0x29
+puc中的后两个字节没有发生变化，因此其值依旧为0，
+答案即 0x02 0x29 0x00 0x00
+</code></pre><ol start="13">
+<li><p>下面的代码中，函数Test执行完毕后，希望输出1，指出错误：</p>
+<figure class="highlight c"><figcaption><span>void VarInit(unsigned char \*pucArg)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  \*pucArg = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">long</span> ulGlobal;</span><br><span class="line">  VarInit((<span class="keyword">unsigned</span> <span class="keyword">char</span>\*)&amp;ulGlobal);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lu"</span>, ulGlobal);</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本题错在了没有对ulGlobal进行初始化，而函数VarInit只对一个字节赋值为1，<br>而unsigned long 类型的ulGlobal变量有四个字节，因此其值不确定<br>此外函数VarInit((unsigned char*)&amp;ulGlobal);传参没有任何问题。</p>
+</li>
+</ol>
+<ol start="14">
+<li><p>找出下面题目中的错误：</p>
+<figure class="highlight c"><figcaption><span>#define ID\_LEN 32</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">STR</span>\_<span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">char</span> aucID\[ID\_LEN\];</span><br><span class="line">  <span class="keyword">int</span> iA;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">STR</span>\_<span class="title">B</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">char</span> \*paucID;</span><br><span class="line">  <span class="keyword">int</span> iB;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">funcA</span><span class="params">(struct STR\_A stA, struct STR\_B \*pstB)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  pstB-&gt;paucID = stA.aucID;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  STR\_A stA = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">  STR\_B stB;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">strcpy</span>(stA.aucID, <span class="string">"12345"</span>);</span><br><span class="line">  funcA(stA, &amp;stB);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%s\\n"</span>, stB.paucID);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本题错在了函数funcA把pstB-&gt;paucID指向了函数中的非指针参数，<br>因此当函数生命周期结束后，这份形参将从函数栈中被释放，<br>从而在main函数中stB得不到正确的结果。</p>
+</li>
+</ol>
+<ol start="15">
+<li><figure class="highlight c"><figcaption><span>typedef unsigned char \_UC;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> \_UL;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX\_LEN 2</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ConvertCode</span><span class="params">(\_UC \*p\_byte, \_UC num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    \_UL i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        p\_byte\[i\] = ((p\_byte\[i\] &amp; <span class="number">0xF0</span>) &gt;&gt; <span class="number">4</span>) | ((p\_byte\[i\] &amp; <span class="number">0x0F</span>) &lt;&lt; <span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    \_UC \*str = <span class="literal">NULL</span>;</span><br><span class="line">    ConvertCode(str,MAX\_LEN);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本题主要错在了对空指针的解引用操作上，<br>代码本意是想完成对unsigned char类型数据的前后四位的反转</p>
+</li>
+</ol>
+<ol start="16">
+<li><figure class="highlight c"><figcaption><span>#define MAX\_PRAM\_LENGTH 10000</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> ucCommand;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">short</span> usLength;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> Para\[MAX\_PRAM\_LENGTH\];</span><br><span class="line">&#125;DEBUG\_MSG;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintDebufMsg</span><span class="params">(DEBUG\_MSG DebugMessage)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"\]nCommand = %d"</span>, DebugMessage.ucCommand);</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; DebugMessage.usLength &amp;&amp; i &lt; MAX\_PRAM\_LENGTH; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\\nPara\[%d\] = 0x%x"</span>, i, DebugMessage.Para\[i\]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本题的性能问题主要是在使用结构体来传参，<br>结构体中有一个10000字节的数组，<br>当调用函数时，将会占用函数帧栈上的大量空间，因此不可取。<br>一般在函数中使用结构体传参时，只传递结构体的地址即可。</p>
+</li>
+</ol>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "rohdea0826.github.io",
+        owner: "rohdea0826",
+        admin: ["rohdea0826"],
+        id: "2018/08/07/C语言笔试题错题薄弱点归纳",
+        distractionFreeMode: true,
+        title: "C语言笔试题错题薄弱点归纳",
+        body: "http://yoursite.com/2018/08/07/C语言笔试题错题薄弱点归纳/",
+        labels: []
+    }).render('comments');
+    </script>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
+    
+
+</body>
+</html>

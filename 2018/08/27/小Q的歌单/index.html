@@ -7,11 +7,11 @@
 
     
 
-    <title>217.存在重复元素 | Rohdea&#39;s blog</title>
+    <title>小Q的歌单 | Rohdea&#39;s blog</title>
     <meta name="author" content="Rohdea" />
     <meta name="version" content="1.0.0" />
     <meta name="keywords" content="" />
-    <meta name="description" content="给定一个整数数组，判断是否存在重复元素。如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。示例 1:输入：[1,2,3,1]输出：true示例 2：输入: [1,2,3,4]输出: false示例 3:输入: [1,1,1,3,3,4,3,2,4,2]输出: true这一题看起来非常简单，用每一个元素和后面的每一个元素依次对比就可以了。class Solution {public:    bool contains..." />
+    <meta name="description" content="【题目描述】小Q有X首长度为A的不同的歌和Y首长度为B的不同的歌，现在小Q想用这些歌组成一个总长度正好为K的歌单，每首歌最多只能在歌单中出现一次，在不考虑歌单内歌曲的先后顺序的情况下，请问有多少种组成歌单的方法。输入描述：每个输入包含一个测试用例。每个测试用例的第一行包含一个整数，表示歌单的总长度K(1&amp;lt;=K&amp;lt;=1000)。接下来的一行包含四个正整数，分别表示歌的第一种长度A(A&amp;lt;=10)和数量X(X&amp;lt;=100)以及歌的第二种长度B(B&amp;lt;=10)和数量Y(..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -128,70 +128,40 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            217.存在重复元素
+            小Q的歌单
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/2018/06/23/217.存在重复元素/index.html">
+            <a class="article-date" href="http://yoursite.com/2018/08/27/小Q的歌单/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2018-06-23T03:21:54.000Z" itemprop="datePublished">2018-06-23</time>
+    <time datetime="2018-08-27T00:00:00.000Z" itemprop="datePublished">2018-08-27</time>
 </a>
 
             
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/leetcode/">leetcode</a>
-</div>
-
 
         </div>
     </header>
     
     <section class="article-body markdown-body">
         
-        <p>给定一个整数数组，判断是否存在重复元素。</p>
-<p>如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。<br><a id="more"></a><br>示例 1:</p>
-<pre><code>输入：[1,2,3,1]
-输出：true
-</code></pre><p>示例 2：</p>
-<pre><code>输入: [1,2,3,4]
-输出: false
-</code></pre><p>示例 3:</p>
-<pre><code>输入: [1,1,1,3,3,4,3,2,4,2]
-输出: true
-</code></pre><p>这一题看起来非常简单，用每一个元素和后面的每一个元素依次对比就可以了。</p>
-<pre><code>class Solution {
-public:
-    bool containsDuplicate(vector&lt;int&gt;&amp; nums) {
-                for (int i = 0; i &lt; nums.size(); i++)
-        {
-            for (int j = i+1; j &lt; nums.size(); j++)
-            {
-                if (nums[i] == nums[j])
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-};
-</code></pre><p>测试执行没问题，然而在提交时却出现了TLE的时间超限的提示。<br>因此在不断的测试后找到了时间最快的方法。代码如下：</p>
-<pre><code>class Solution {
-public:
-    bool containsDuplicate(vector&lt;int&gt;&amp; nums) {
-        if(nums.size()==0) return false;
-        std::sort(nums.begin(), nums.end());
-        for (int i = 0; i &lt; nums.size()-1; i++)
-        {
-            if (nums[i] == nums[i + 1]) return true;
-        }
-        return false;
-    }
-};
-</code></pre><p>嗯，这些数组的OJ题总是喜欢给你一个空数组，因此一定要加入当数组为空时的判断。</p>
+        <p>【题目描述】小Q有X首长度为A的不同的歌和Y首长度为B的不同的歌，<br>现在小Q想用这些歌组成一个总长度正好为K的歌单，每首歌最多只能在歌单中出现一次，<br>在不考虑歌单内歌曲的先后顺序的情况下，请问有多少种组成歌单的方法。</p>
+<a id="more"></a>
+<p>输入描述：<br>每个输入包含一个测试用例。<br>每个测试用例的第一行包含一个整数，表示歌单的总长度K(1&lt;=K&lt;=1000)。<br>接下来的一行包含四个正整数，<br>分别表示歌的第一种长度A(A&lt;=10)和数量X(X&lt;=100)以及歌的第二种长度B(B&lt;=10)和数量Y(Y&lt;=100)。<br>保证A不等于B。</p>
+<p>输出描述：<br>输出一个整数，表示组成歌单的方法取模。<br>因为答案可能会很大，输出对1000000007取模的结果。</p>
+<p>输入示例：<br>5<br>2 3 3 3<br>输出示例：<br>9</p>
+<p>解题思路：</p>
+<p>（排列组合）<br>以输入示例为例：</p>
+<p>张三的歌时长均为2分钟，有3首不同的，</p>
+<p>李四的歌时长均为3分钟，也有3首不同的。</p>
+<p>要求组成歌单的长度为5分钟</p>
+<p>从取0首张三的歌开始 到取3首张三的歌结束，依次判断可以满足长度为5的组合的可能数</p>
+<p>1.取0首张三2分钟的歌，则歌单剩余5分钟-2分钟*0首==5分钟，5分钟/李四3分钟的歌无法满足；</p>
+<p>2.取1首张三2分钟的歌，则歌单剩余5分钟-2分钟*1首==3分钟，3分钟/李四3分钟的歌满足，<br>  张三可以从3首歌中取1首，有三种可能；李四可以从三首歌中取1首，也有三种可能，<br>  因此张三李四各取一首歌组成5分钟歌单的不同可能有3*3 == 9种可能；</p>
+<p>3.取2首张三2分钟的歌，则歌单剩余1分钟，1分钟/李四3分钟的歌无法满足条件；</p>
+<p>4.取3首张三2分钟的歌，超过歌单总数，退出判断。</p>
+<p>将所有的可能的个数加起来即为所求可能数<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化二维数组为杨辉三角</span></span><br><span class="line"><span class="comment">//排列组合的C(x,i)的值与杨辉三角对应位置的值相同，</span></span><br><span class="line"><span class="comment">//杨辉三角就是由杨辉整理贾宪的二项式系数而来</span></span><br><span class="line"><span class="comment">//其都有性质C(n, k) = C(n-1, k) + C(n-1, k-1)</span></span><br><span class="line"><span class="comment">//因此只需求出C(x,i)的值与C(y，(k-i)/b)的值，</span></span><br><span class="line"><span class="comment">//然后相乘即得总共的可能数</span></span><br><span class="line"><span class="comment">//取模运算的性质有：</span></span><br><span class="line"><span class="comment">//(a + b) % p == (a % p + b % p) % p</span></span><br><span class="line"><span class="comment">//(a \* b) % p == (a % p \* b % p) % p</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> c\[<span class="number">105</span>\]\[<span class="number">105</span>\];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  c\[<span class="number">0</span>\]\[<span class="number">0</span>\] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    c\[i\]\[<span class="number">0</span>\] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">100</span>; j++)</span><br><span class="line">    &#123;</span><br><span class="line">      c\[i\]\[j\] = (c\[i - <span class="number">1</span>\]\[j - <span class="number">1</span>\] + c\[i - <span class="number">1</span>\]\[j\]) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> k, a, b, x, y;</span><br><span class="line">  <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">  init();</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;a, &amp;x, &amp;b, &amp;y);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= x; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> (i \* a &lt;= k &amp;&amp; (k - a \* i) % b == <span class="number">0</span> &amp;&amp; (k - a \* i) / b &lt;= y)</span><br><span class="line">      ans = (ans + (c\[x\]\[i\] \* c\[y\]\[(k - a \* i) / b\]) % mod) % mod;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld\\n"</span>, ans);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         
     </section>
@@ -209,11 +179,11 @@ public:
         repo: "rohdea0826.github.io",
         owner: "rohdea0826",
         admin: ["rohdea0826"],
-        id: "2018/06/23/217.存在重复元素",
+        id: "2018/08/27/小Q的歌单",
         distractionFreeMode: true,
-        title: "217.存在重复元素",
-        body: "http://yoursite.com/2018/06/23/217.存在重复元素/",
-        labels: ["leetcode"]
+        title: "小Q的歌单",
+        body: "http://yoursite.com/2018/08/27/小Q的歌单/",
+        labels: []
     }).render('comments');
     </script>
 </div>

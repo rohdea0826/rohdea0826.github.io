@@ -7,11 +7,11 @@
 
     
 
-    <title>217.存在重复元素 | Rohdea&#39;s blog</title>
+    <title>ubuntu17.10环境中wordpress的安装 | Rohdea&#39;s blog</title>
     <meta name="author" content="Rohdea" />
     <meta name="version" content="1.0.0" />
     <meta name="keywords" content="" />
-    <meta name="description" content="给定一个整数数组，判断是否存在重复元素。如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。示例 1:输入：[1,2,3,1]输出：true示例 2：输入: [1,2,3,4]输出: false示例 3:输入: [1,1,1,3,3,4,3,2,4,2]输出: true这一题看起来非常简单，用每一个元素和后面的每一个元素依次对比就可以了。class Solution {public:    bool contains..." />
+    <meta name="description" content="首先我们需要在Ubuntu下安装这几个软件：1apt-get install apache2 php7.1 mysql-server mysql-client phpmyadmin其中，apache时Web服务器软件，php是一种脚本语言，mysql-server和mysql-client是数据库的服务端和客户端，phpmyadmin是为了可以方便的通过网页来对数据库进行管理。ubuntu16.04中还需要安装libapache2-mod-php7.0来整合apache2与php在安装..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -128,70 +128,36 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            217.存在重复元素
+            ubuntu17.10环境中wordpress的安装
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/2018/06/23/217.存在重复元素/index.html">
+            <a class="article-date" href="http://yoursite.com/2018/07/12/ubuntu17_10环境中wordpress的安装/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2018-06-23T03:21:54.000Z" itemprop="datePublished">2018-06-23</time>
+    <time datetime="2018-07-12T00:00:00.000Z" itemprop="datePublished">2018-07-12</time>
 </a>
 
             
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/leetcode/">leetcode</a>
-</div>
-
 
         </div>
     </header>
     
     <section class="article-body markdown-body">
         
-        <p>给定一个整数数组，判断是否存在重复元素。</p>
-<p>如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。<br><a id="more"></a><br>示例 1:</p>
-<pre><code>输入：[1,2,3,1]
-输出：true
-</code></pre><p>示例 2：</p>
-<pre><code>输入: [1,2,3,4]
-输出: false
-</code></pre><p>示例 3:</p>
-<pre><code>输入: [1,1,1,3,3,4,3,2,4,2]
-输出: true
-</code></pre><p>这一题看起来非常简单，用每一个元素和后面的每一个元素依次对比就可以了。</p>
-<pre><code>class Solution {
-public:
-    bool containsDuplicate(vector&lt;int&gt;&amp; nums) {
-                for (int i = 0; i &lt; nums.size(); i++)
-        {
-            for (int j = i+1; j &lt; nums.size(); j++)
-            {
-                if (nums[i] == nums[j])
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-};
-</code></pre><p>测试执行没问题，然而在提交时却出现了TLE的时间超限的提示。<br>因此在不断的测试后找到了时间最快的方法。代码如下：</p>
-<pre><code>class Solution {
-public:
-    bool containsDuplicate(vector&lt;int&gt;&amp; nums) {
-        if(nums.size()==0) return false;
-        std::sort(nums.begin(), nums.end());
-        for (int i = 0; i &lt; nums.size()-1; i++)
-        {
-            if (nums[i] == nums[i + 1]) return true;
-        }
-        return false;
-    }
-};
-</code></pre><p>嗯，这些数组的OJ题总是喜欢给你一个空数组，因此一定要加入当数组为空时的判断。</p>
+        <p>首先我们需要在Ubuntu下安装这几个软件：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install apache2 php7.1 mysql-server mysql-client phpmyadmin</span><br></pre></td></tr></table></figure></p>
+<p>其中，apache时Web服务器软件，php是一种脚本语言，mysql-server和mysql-client是数据库的服务端和客户端，phpmyadmin是为了可以方便的通过网页来对数据库进行管理。<br><a id="more"></a><br>ubuntu16.04中还需要安装libapache2-mod-php7.0来整合apache2与php</p>
+<p>在安装mysql时设置好密码并选择apache2，装phpmyadmin时设置好密码，之后用软连接连接一下以便使用：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin</span><br></pre></td></tr></table></figure></p>
+<p>接下来下载并安装wordpress，可以去官网查看最新的包：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://cn.wordpress.org/wordpress-4.9.4-zh\_CN.tar.gz</span><br><span class="line">tar zxf wordpress-4.9.4-zh\_CN.tar.gz -C /var/www/html</span><br></pre></td></tr></table></figure></p>
+<p>然后要授予wordpress文件夹权限，以便安装时创建wp-config.php ：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown www-data:www-data /var/www/html/wordpress/</span><br></pre></td></tr></table></figure></p>
+<p>其中www-data是apache2的用户和用户组</p>
+<p>通过访问 “服务器ip”/phpmyadmin 进入phpmyadmin，用户名root，密码为刚才安装时设置的。在左侧点击新建，新建一个名为wordpress的database。</p>
+<p>接下来访问 “服务器ip”/wordpress进入wordpress的配置界面，填写数据库名为刚才创建的wordpress，填写数据库的用户名和密码。</p>
+<p>点击提交。点击现在安装。</p>
+<p>填写站点标题，用户名，保存好密码或自己重新设置密码，填写电子邮件，安装wordpress，然后就可以登陆了。</p>
+<p>到此wordpress就安装完成了。</p>
+<p>对了，不要忘记允许80端口：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 80</span><br></pre></td></tr></table></figure></p>
 
         
     </section>
@@ -209,11 +175,11 @@ public:
         repo: "rohdea0826.github.io",
         owner: "rohdea0826",
         admin: ["rohdea0826"],
-        id: "2018/06/23/217.存在重复元素",
+        id: "2018/07/12/ubuntu17_10环境中wordpress的安装",
         distractionFreeMode: true,
-        title: "217.存在重复元素",
-        body: "http://yoursite.com/2018/06/23/217.存在重复元素/",
-        labels: ["leetcode"]
+        title: "ubuntu17.10环境中wordpress的安装",
+        body: "http://yoursite.com/2018/07/12/ubuntu17_10环境中wordpress的安装/",
+        labels: []
     }).render('comments');
     </script>
 </div>
