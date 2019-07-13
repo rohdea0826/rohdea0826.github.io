@@ -7,11 +7,11 @@
 
     
 
-    <title>交换机基本操作命令 | Rohdea&#39;s blog</title>
+    <title>交换机路由器基本操作命令总结 | Rohdea&#39;s blog</title>
     <meta name="author" content="Rohdea" />
     <meta name="version" content="1.0.0" />
     <meta name="keywords" content="" />
-    <meta name="description" content="VRP简介通用路由平台VRP（Versatile Routing Platform）是华为公司数据通信产品的通用操作系统平台。本篇文章将简单总结交换机的一些基本操作命令。交换机通过vlan配置IP地址由于交换机工作在TCP/IP协议的第二层数据链路层，其端口也属于二层端口，因此不能直接在他的端口上设置三层口的IP地址。但在交换机上可以通过设置vlan的方式来实现三层口的功能，即vlanif。vlan，即virtual lan，也就是虚拟局域网的意思。下面通过一个题目来对交换机端口配置IP..." />
+    <meta name="description" content="VRP通用路由平台VRP（Versatile Routing Platform）是华为公司数据通信产品的通用操作系统平台。本篇文章将根据以下题目总结一些基本操作预留图片要求PC1访问PC3在SW1-SW3上实现负载分担，访问PC2经过R1.要求使用ospf实现链路聚合实现负载分担int Eth-Trunk 1quitint g0/0/2eth-trunk 1quitint g0/0/6eth-trunk 1quit交换机通过vlan配置IP地址由于交换机工作在T..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -71,7 +71,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP简介"><span class="toc-number">1.</span> <span class="toc-text">VRP简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交换机通过vlan配置IP地址"><span class="toc-number">2.</span> <span class="toc-text">交换机通过vlan配置IP地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置vlan"><span class="toc-number">2.1.</span> <span class="toc-text">设置vlan</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#首先设置SW1"><span class="toc-number">2.1.1.</span> <span class="toc-text">首先设置SW1</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#设置vlan："><span class="toc-number">2.1.1.1.</span> <span class="toc-text">设置vlan：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#设置交换机端口的类型并绑定相应的vlan"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">设置交换机端口的类型并绑定相应的vlan</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP"><span class="toc-number">1.</span> <span class="toc-text">VRP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链路聚合实现负载分担"><span class="toc-number">2.</span> <span class="toc-text">链路聚合实现负载分担</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交换机通过vlan配置IP地址"><span class="toc-number">3.</span> <span class="toc-text">交换机通过vlan配置IP地址</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#设置vlan并配置vlanif的ip地址"><span class="toc-number">3.0.1.</span> <span class="toc-text">设置vlan并配置vlanif的ip地址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设置交换机端口的类型并绑定相应的vlan"><span class="toc-number">3.0.2.</span> <span class="toc-text">设置交换机端口的类型并绑定相应的vlan</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在SW1上添加静态路由，实现PC1与PC2的互访"><span class="toc-number">4.</span> <span class="toc-text">在SW1上添加静态路由，实现PC1与PC2的互访</span></a></li></ol>
         
     </div>
 </aside>
@@ -83,7 +83,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            交换机基本操作命令
+            交换机路由器基本操作命令总结
         </h1>
         
         <div class="article-meta clearfix">
@@ -106,13 +106,54 @@
     
     <section class="article-body markdown-body">
         
-        <h3 id="VRP简介"><a href="#VRP简介" class="headerlink" title="VRP简介"></a>VRP简介</h3><p>通用路由平台VRP（Versatile Routing Platform）是华为公司数据通信产品的通用操作系统平台。<br>本篇文章将简单总结交换机的一些基本操作命令。</p>
-<h3 id="交换机通过vlan配置IP地址"><a href="#交换机通过vlan配置IP地址" class="headerlink" title="交换机通过vlan配置IP地址"></a>交换机通过vlan配置IP地址</h3><p>由于交换机工作在TCP/IP协议的第二层数据链路层，其端口也属于二层端口，因此不能直接在他的端口上设置三层口的IP地址。<br>但在交换机上可以通过设置vlan的方式来实现三层口的功能，即vlanif。<br>vlan，即virtual lan，也就是虚拟局域网的意思。<br>下面通过一个题目来对交换机端口配置IP的过程进行总结。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">预留图片</span><br></pre></td></tr></table></figure>
-<h4 id="设置vlan"><a href="#设置vlan" class="headerlink" title="设置vlan"></a>设置vlan</h4><h5 id="首先设置SW1"><a href="#首先设置SW1" class="headerlink" title="首先设置SW1"></a>首先设置SW1</h5><h6 id="设置vlan："><a href="#设置vlan：" class="headerlink" title="设置vlan："></a>设置vlan：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">vlan batch 10 11 113</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
-<p>分别设置vlanif的ip地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">interface vlanif 10</span><br><span class="line">ip address 1.1.1.254 24</span><br><span class="line">quit</span><br><span class="line"></span><br><span class="line">interface vlanif 11</span><br><span class="line">ip address 172.16.11.2 24</span><br><span class="line">quit</span><br><span class="line"></span><br><span class="line">interface vlanif 113</span><br><span class="line">ip address 172.16.113.1 24</span><br><span class="line">quit</span><br></pre></td></tr></table></figure></p>
-<h6 id="设置交换机端口的类型并绑定相应的vlan"><a href="#设置交换机端口的类型并绑定相应的vlan" class="headerlink" title="设置交换机端口的类型并绑定相应的vlan"></a>设置交换机端口的类型并绑定相应的vlan</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int g0/0/3</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 10</span><br><span class="line">quit</span><br><span class="line"></span><br><span class="line">int g0/0/1</span><br><span class="line">port link-type hybrid</span><br><span class="line">port hybrid pvid vlan 11</span><br><span class="line">port hybrid untagged vlan 11</span><br><span class="line">quit</span><br><span class="line"></span><br><span class="line">int eth-trunk 1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan 113</span><br></pre></td></tr></table></figure>
+        <h3 id="VRP"><a href="#VRP" class="headerlink" title="VRP"></a>VRP</h3><p>通用路由平台VRP（Versatile Routing Platform）是华为公司数据通信产品的通用操作系统平台。<br>本篇文章将根据以下题目总结一些基本操作</p>
+<pre><code>预留图片
+</code></pre><ol>
+<li>要求PC1访问PC3在SW1-SW3上实现负载分担，访问PC2经过R1.要求使用ospf实现</li>
+</ol>
+<a id="more"></a>
+<h3 id="链路聚合实现负载分担"><a href="#链路聚合实现负载分担" class="headerlink" title="链路聚合实现负载分担"></a>链路聚合实现负载分担</h3><pre><code>int Eth-Trunk 1
+quit
+int g0/0/2
+eth-trunk 1
+quit
+int g0/0/6
+eth-trunk 1
+quit
+</code></pre><h3 id="交换机通过vlan配置IP地址"><a href="#交换机通过vlan配置IP地址" class="headerlink" title="交换机通过vlan配置IP地址"></a>交换机通过vlan配置IP地址</h3><p>由于交换机工作在TCP/IP协议的第二层数据链路层，其端口也属于二层端口，因此不能直接在该端口上设置三层口的IP地址。<br>但在交换机上可以通过设置vlan的方式来实现三层口的功能，即vlanif。<br>vlan，即virtual lan，也就是虚拟局域网的意思。</p>
+<p>此处配置均为SW1，其余交换机配置类似。</p>
+<h5 id="设置vlan并配置vlanif的ip地址"><a href="#设置vlan并配置vlanif的ip地址" class="headerlink" title="设置vlan并配置vlanif的ip地址"></a>设置vlan并配置vlanif的ip地址</h5><p>设置vlan。<br>vlan可以设置单个vlan，vlan batch可以同时创建多个vlan。</p>
+<pre><code>sys
+vlan batch 10 11 113
+quit
+</code></pre><p>分别设置vlanif的ip地址。</p>
+<pre><code>interface vlanif 10
+ip address 1.1.1.254 24
+quit
 
+interface vlanif 11
+ip address 172.16.11.2 24
+quit
+
+interface vlanif 113
+ip address 172.16.113.1 24
+quit
+</code></pre><h5 id="设置交换机端口的类型并绑定相应的vlan"><a href="#设置交换机端口的类型并绑定相应的vlan" class="headerlink" title="设置交换机端口的类型并绑定相应的vlan"></a>设置交换机端口的类型并绑定相应的vlan</h5><p>access连接类型发送数据帧时不带vlan的标签，因此一般连接主机或路由器的三层口。接收数据时会添加default vlan的vlan标签。<br>trunk连接类型发送数据帧时带有vlan的标签，因此一般与同样是trunk类型的交换机接口相连。即收发的数据帧都带有相应的vlan标签。通过allow-pass vlan设置允许通过的相应数据帧。<br>hybrid连接类型是华为设备所特有的，通过tagged或untagged可以设置是否发送带有vlan标签的数据帧。因此既可连接主机路由器，也可连接交换机的trunk口。</p>
+<pre><code>int g0/0/3
+port link-type access
+port default vlan 10
+quit
+
+int g0/0/1
+port link-type hybrid
+port hybrid pvid vlan 11
+port hybrid untagged vlan 11
+quit
+
+int eth-trunk 1
+port link-type trunk
+port trunk allow-pass vlan 113
+</code></pre><h3 id="在SW1上添加静态路由，实现PC1与PC2的互访"><a href="#在SW1上添加静态路由，实现PC1与PC2的互访" class="headerlink" title="在SW1上添加静态路由，实现PC1与PC2的互访"></a>在SW1上添加静态路由，实现PC1与PC2的互访</h3>
         
     </section>
 </article>
@@ -131,7 +172,7 @@
         admin: ["rohdea0826"],
         id: "2019/07/13/交换机基本操作命令",
         distractionFreeMode: true,
-        title: "交换机基本操作命令",
+        title: "交换机路由器基本操作命令总结",
         body: "http://yoursite.com/2019/07/13/交换机基本操作命令/",
         labels: ["Switch, VRP"]
     }).render('comments');
