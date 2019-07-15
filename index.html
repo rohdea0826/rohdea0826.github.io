@@ -49,10 +49,6 @@
                 <span class="nav-text">归档</span>
             </a>
         
-            <a class="nav-item" href="/#atom.xml">
-                <span class="nav-text">订阅</span>
-            </a>
-        
             <a class="nav-item" href="/#about">
                 <span class="nav-text">关于</span>
             </a>
@@ -122,6 +118,35 @@
 </header>
 
         <div id="content" class="content">
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2019/07/15/标签/">标签</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-07-15T12:10:38.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        
+        
+    </section>
+</article>
+
+
     <article class="article" itemscope itemprop="blogPost">
     
     <header class="article-header">
@@ -495,48 +520,6 @@ quit
         
         <p class="article-more-link">
             <a href="/2018/08/07/C语言数据结构相关/C语言笔试题错题薄弱点归纳/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/">关于函数栈帧的有趣代码</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2018-07-25T00:00:00.000Z" itemprop="datePublished">2018-07-25</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/C语言/">C语言</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">surprise</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"surprise！\\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> \*p = (<span class="keyword">int</span> \*)(&amp;tmp + <span class="number">4</span>); <span class="comment">//这里所加的值与代码编译环境有关</span></span><br><span class="line">                                <span class="comment">//此处的4是在VS2017中测试所得</span></span><br><span class="line">    \*p = (<span class="keyword">int</span>)surprise;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-        <p class="article-more-link">
-            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
