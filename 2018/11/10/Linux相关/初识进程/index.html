@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8" />
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
 
     
 
     
 
     <title>初识进程 | Rohdea&#39;s blog</title>
-    <meta name="author" content="Rohdea" />
-    <meta name="version" content="1.0.0" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="说起进程，就得从计算机的最底层说起，因为硬件体系决定了软件的行为。 只有清楚了计算机的大致原理，才能更好的理解进程。冯诺伊曼体系结构现代计算机的体系结构就是冯诺依曼体系结构，主要包含五大部件：输入设备：鼠标、键盘等输出设备：显示器、打印机等存储器：内存控制器和运算器：处理器    在计算机中，所有硬件都是围绕存储器（即内存）运行的。 输入设备在存储器中写入数据；运算器从存储器中读取数据并处理数据，然后将数据写入存储器；输出设备从存储器中读取数据并输出；控制器控制这些设备的读..." />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="author" content="Rohdea">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="说起进程，就得从计算机的最底层说起，因为硬件体系决定了软件的行为。 只有清楚了计算机的大致原理，才能更好的理解进程。冯诺伊曼体系结构现代计算机的体系结构就是冯诺依曼体系结构，主要包含五大部件：输入设备：鼠标、键盘等输出设备：显示器、打印机等存储器：内存控制器和运算器：处理器    在计算机中，所有硬件都是围绕存储器（即内存）运行的。 输入设备在存储器中写入数据；运算器从存储器中读取数据并处理数据，然后将数据写入存储器；输出设备从存储器中读取数据并输出；控制器控制这些设...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
     
     <link rel="alternate" href="/atom.xml" title="Rohdea&#39;s blog" type="application/atom+xml">
@@ -74,7 +74,7 @@
 
 </header>
 
-        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+        <div id="content" class="content"><article class="article" itemscope="" itemprop="blogPost">
     
     <header class="article-header">
         
@@ -105,9 +105,12 @@
         <p>说起进程，就得从计算机的最底层说起，因为硬件体系决定了软件的行为。 只有清楚了计算机的大致原理，才能更好的理解进程。</p>
 <h1 id="冯诺伊曼体系结构"><a href="#冯诺伊曼体系结构" class="headerlink" title="冯诺伊曼体系结构"></a>冯诺伊曼体系结构</h1><p>现代计算机的体系结构就是冯诺依曼体系结构，主要包含五大部件：</p>
 <ul>
-<li><strong>输入设备</strong>：鼠标、键盘等</li>
-<li><strong>输出设备</strong>：显示器、打印机等</li>
-<li><strong>存储器</strong>：内存</li>
+<li><p><strong>输入设备</strong>：鼠标、键盘等</p>
+</li>
+<li><p><strong>输出设备</strong>：显示器、打印机等</p>
+</li>
+<li><p><strong>存储器</strong>：内存</p>
+</li>
 <li><p><strong>控制器和运算器</strong>：处理器</p>
   <a id="more"></a>
 <p>  在计算机中，所有硬件都是围绕存储器（即内存）运行的。 输入设备在存储器中写入数据；运算器从存储器中读取数据并处理数据，然后将数据写入存储器；输出设备从存储器中读取数据并输出；控制器控制这些设备的读写操作。 冯诺依曼体系结构中，数据和指令均存储在存储器中。</p>
