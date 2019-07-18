@@ -41,7 +41,7 @@
                 <span class="nav-text">首页</span>
             </a>
         
-            <a class="nav-item" href="/tags">
+            <a class="nav-item" href="/2019/07/15/标签#/tags">
                 <span class="nav-text">标签</span>
             </a>
         
@@ -137,7 +137,7 @@
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/C语言/">C语言</a>
+    <a class="article-tag-link" href="/2019/07/15/标签#tags/C语言/">C语言</a>
 </div>
 
 
@@ -170,7 +170,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2018/07/25/C语言数据结构相关/C语言中的可变参数列表/">C语言中的可变参数列表</a>
+            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/">关于函数栈帧的有趣代码</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -184,7 +184,7 @@
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/C语言/">C语言</a>
+    <a class="article-tag-link" href="/2019/07/15/标签#tags/C语言/">C语言</a>
 </div>
 
 
@@ -193,11 +193,10 @@
     
     <section class="article-body markdown-body">
         
-        <p>这次先用一个简单的求平均数的函数来说明可变参数列表，先放代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> my\_average(<span class="keyword">int</span> n, ...)</span><br><span class="line">&#123;</span><br><span class="line">    va\_list arg;</span><br><span class="line">    va\_start(arg, n);</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ret += (va\_arg(arg, <span class="keyword">int</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    va\_end(arg);</span><br><span class="line">    <span class="keyword">return</span> ret / n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = my\_average(<span class="number">5</span>, <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\\n"</span>, result);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">surprise</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"surprise！\\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> \*p = (<span class="keyword">int</span> \*)(&amp;tmp + <span class="number">4</span>); <span class="comment">//这里所加的值与代码编译环境有关</span></span><br><span class="line">                                <span class="comment">//此处的4是在VS2017中测试所得</span></span><br><span class="line">    \*p = (<span class="keyword">int</span>)surprise;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
         <p class="article-more-link">
-            <a href="/2018/07/25/C语言数据结构相关/C语言中的可变参数列表/#more">
+            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
@@ -213,7 +212,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/">关于函数栈帧的有趣代码</a>
+            <a href="/2018/07/25/C语言数据结构相关/C语言中的可变参数列表/">C语言中的可变参数列表</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -227,7 +226,7 @@
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/C语言/">C语言</a>
+    <a class="article-tag-link" href="/2019/07/15/标签#tags/C语言/">C语言</a>
 </div>
 
 
@@ -236,10 +235,11 @@
     
     <section class="article-body markdown-body">
         
-        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">surprise</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"surprise！\\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> \*p = (<span class="keyword">int</span> \*)(&amp;tmp + <span class="number">4</span>); <span class="comment">//这里所加的值与代码编译环境有关</span></span><br><span class="line">                                <span class="comment">//此处的4是在VS2017中测试所得</span></span><br><span class="line">    \*p = (<span class="keyword">int</span>)surprise;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>这次先用一个简单的求平均数的函数来说明可变参数列表，先放代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> my\_average(<span class="keyword">int</span> n, ...)</span><br><span class="line">&#123;</span><br><span class="line">    va\_list arg;</span><br><span class="line">    va\_start(arg, n);</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ret += (va\_arg(arg, <span class="keyword">int</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    va\_end(arg);</span><br><span class="line">    <span class="keyword">return</span> ret / n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = my\_average(<span class="number">5</span>, <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\\n"</span>, result);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
         <p class="article-more-link">
-            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/#more">
+            <a href="/2018/07/25/C语言数据结构相关/C语言中的可变参数列表/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
@@ -292,6 +292,51 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2018/07/12/Linux相关/ubuntu17_10环境中wordpress的安装/">ubuntu17.10环境中wordpress的安装</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2018-07-12T00:00:00.000Z" itemprop="datePublished">2018-07-12</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/2019/07/15/标签#tags/wordpress/">wordpress</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>首先我们需要在Ubuntu下安装这几个软件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install apache2 php7.1 mysql-server mysql-client phpmyadmin</span><br></pre></td></tr></table></figure>
+
+<p>其中，apache时Web服务器软件，php是一种脚本语言，mysql-server和mysql-client是数据库的服务端和客户端，phpmyadmin是为了可以方便的通过网页来对数据库进行管理。</p>
+        
+        <p class="article-more-link">
+            <a href="/2018/07/12/Linux相关/ubuntu17_10环境中wordpress的安装/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2018/07/12/归档/2018-07-12/">从今天起，每天编程一小时</a>
         </h1>
         
@@ -326,51 +371,6 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2018/07/12/Linux相关/ubuntu17_10环境中wordpress的安装/">ubuntu17.10环境中wordpress的安装</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2018-07-12T00:00:00.000Z" itemprop="datePublished">2018-07-12</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/wordpress/">wordpress</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>首先我们需要在Ubuntu下安装这几个软件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install apache2 php7.1 mysql-server mysql-client phpmyadmin</span><br></pre></td></tr></table></figure>
-
-<p>其中，apache时Web服务器软件，php是一种脚本语言，mysql-server和mysql-client是数据库的服务端和客户端，phpmyadmin是为了可以方便的通过网页来对数据库进行管理。</p>
-        
-        <p class="article-more-link">
-            <a href="/2018/07/12/Linux相关/ubuntu17_10环境中wordpress的安装/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope="" itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
             <a href="/2018/06/23/C语言数据结构相关/217.存在重复元素/">217.存在重复元素</a>
         </h1>
         
@@ -385,7 +385,7 @@
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/C语言/">C语言</a>, <a class="article-tag-link" href="/tags/leetcode/">leetcode</a>
+    <a class="article-tag-link" href="/2019/07/15/标签#tags/C语言/">C语言</a>, <a class="article-tag-link" href="/2019/07/15/标签#tags/leetcode/">leetcode</a>
 </div>
 
 
