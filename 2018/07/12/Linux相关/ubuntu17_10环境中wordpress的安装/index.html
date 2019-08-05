@@ -157,7 +157,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin</span><br></pre></td></tr></table></figure>
 
 <p>接下来下载并安装wordpress，可以去官网查看最新的包：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://cn.wordpress.org/wordpress-4.9.4-zh\_CN.tar.gz</span><br><span class="line">tar zxf wordpress-4.9.4-zh\_CN.tar.gz -C /var/www/html</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz</span><br><span class="line">tar zxf wordpress-4.9.4-zh_CN.tar.gz -C /var/www/html</span><br></pre></td></tr></table></figure>
 
 <p>然后要授予wordpress文件夹权限，以便安装时创建wp-config.php ：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown www-data:www-data /var/www/html/wordpress/</span><br></pre></td></tr></table></figure>
