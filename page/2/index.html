@@ -349,6 +349,48 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/">关于函数栈帧的有趣代码</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2018-07-25T00:00:00.000Z" itemprop="datePublished">2018-07-25</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/2019/07/15/标签#tags/C语言/">C语言</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">surprise</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"surprise！\\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> \*p = (<span class="keyword">int</span> \*)(&amp;tmp + <span class="number">4</span>); <span class="comment">//这里所加的值与代码编译环境有关</span></span><br><span class="line">                                <span class="comment">//此处的4是在VS2017中测试所得</span></span><br><span class="line">    \*p = (<span class="keyword">int</span>)surprise;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        <p class="article-more-link">
+            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2018/07/25/C语言数据结构相关/C语言中的可变参数列表/">C语言中的可变参数列表</a>
         </h1>
         
@@ -377,48 +419,6 @@
         
         <p class="article-more-link">
             <a href="/2018/07/25/C语言数据结构相关/C语言中的可变参数列表/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope="" itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/">关于函数栈帧的有趣代码</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2018-07-25T00:00:00.000Z" itemprop="datePublished">2018-07-25</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/2019/07/15/标签#tags/C语言/">C语言</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">surprise</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"surprise！\\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> \*p = (<span class="keyword">int</span> \*)(&amp;tmp + <span class="number">4</span>); <span class="comment">//这里所加的值与代码编译环境有关</span></span><br><span class="line">                                <span class="comment">//此处的4是在VS2017中测试所得</span></span><br><span class="line">    \*p = (<span class="keyword">int</span>)surprise;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-        <p class="article-more-link">
-            <a href="/2018/07/25/C语言数据结构相关/关于函数栈帧的有趣代码/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
@@ -471,6 +471,40 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2018/07/12/归档/2018-07-12/">从今天起，每天编程一小时</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2018-07-12T00:00:00.000Z" itemprop="datePublished">2018-07-12</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>转眼间就要大四了，终究是要给自己大学四年的学习一个交待。 今天折腾了好几个小时，正式建立了自己的博客。 想要通过这个博客来给自己一些学习的动力，不然学到的知识没有记录，总感觉什么都没有学到一样。</p>
+<p>想起当年高考填志愿，自己固执的把所有学校的专业都选成了计算机科学与技术。 有句话是这么说的：“当你把字母输入到机器后，一些魔幻的、疯狂的事情就发生了！”。 我正是被这些魔幻的、疯狂的事情所吸引，从而好奇计算机的一切，迫切的想要搞清楚这一切。</p>
+<p>大学迷茫了那么久，不知道将来工作要干什么，学到的知识广而不精。 如今，我也是对计算机有了一定的了解，深知计算机所涉及到的东西非常多。 然而一个人的精力是有限的，因此要先找一个方向较为深入的探索。</p>
+<p>从今天起，每天至少要敲一个小时的代码，养成良好的编程习惯，记录好自己的学习过程。</p>
+<p>2018年7月12日</p>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2018/07/12/Linux相关/ubuntu17_10环境中wordpress的安装/">ubuntu17.10环境中wordpress的安装</a>
         </h1>
         
@@ -506,40 +540,6 @@
             </a>
         </p>
         
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope="" itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2018/07/12/归档/2018-07-12/">从今天起，每天编程一小时</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2018-07-12T00:00:00.000Z" itemprop="datePublished">2018-07-12</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>转眼间就要大四了，终究是要给自己大学四年的学习一个交待。 今天折腾了好几个小时，正式建立了自己的博客。 想要通过这个博客来给自己一些学习的动力，不然学到的知识没有记录，总感觉什么都没有学到一样。</p>
-<p>想起当年高考填志愿，自己固执的把所有学校的专业都选成了计算机科学与技术。 有句话是这么说的：“当你把字母输入到机器后，一些魔幻的、疯狂的事情就发生了！”。 我正是被这些魔幻的、疯狂的事情所吸引，从而好奇计算机的一切，迫切的想要搞清楚这一切。</p>
-<p>大学迷茫了那么久，不知道将来工作要干什么，学到的知识广而不精。 如今，我也是对计算机有了一定的了解，深知计算机所涉及到的东西非常多。 然而一个人的精力是有限的，因此要先找一个方向较为深入的探索。</p>
-<p>从今天起，每天至少要敲一个小时的代码，养成良好的编程习惯，记录好自己的学习过程。</p>
-<p>2018年7月12日</p>
-
         
     </section>
 </article>
