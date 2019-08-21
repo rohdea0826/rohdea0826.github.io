@@ -11,7 +11,7 @@
     <meta name="author" content="Rohdea">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content="">
-    <meta name="description" content="首先新建账户，将账户服务类型设置为telnet及ssh，用户等级设为level3aaalocal-user rohdea password cipher rohdea123local-user rohdea service-type telnet sshlocal-user rohdea privilege level 3quituser interface vty 0 4authentication-mode aaaprotocol inbound allquit服务...">
+    <meta name="description" content="首先新建账户，将账户服务类型设置为telnet及ssh，用户等级设为level3或更高。aaalocal-user rohdea password cipher rohdea123local-user rohdea service-type telnet sshlocal-user rohdea privilege level 3quituser interface vty 0 4authentication-mode aaaprotocol inbound allqu...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
@@ -147,7 +147,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>首先新建账户，将账户服务类型设置为telnet及ssh，用户等级设为level3</p>
+        <p>首先新建账户，将账户服务类型设置为telnet及ssh，用户等级设为level3或更高。</p>
 <pre><code>aaa
 local-user rohdea password cipher rohdea123
 local-user rohdea service-type telnet ssh
