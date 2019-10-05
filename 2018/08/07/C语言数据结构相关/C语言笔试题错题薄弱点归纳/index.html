@@ -9,7 +9,6 @@
 
     <title>C语言笔试题错题薄弱点归纳 | Rohdea&#39;s blog</title>
     <meta name="author" content="Rohdea">
-    <meta name="version" content="1.0.0">
     <meta name="keywords" content="">
     <meta name="description" content="以下叙述中不正确的是（B） D A）在不同的函数中可以使用相同名字的变量 B）函数中的形式参数是在栈中保存 C）在一个函数内定义的变量只在本函数范围内有效 D）在一个函数内复合语句中定义的变量在本函数范围内有效  本题错选了B是因为对形式参数的定义不明确，只想到了形式参数不是实际存在的， 而忽略了形式参数的存在就是为了接受实参传来的值，进而保存在栈中。 而D就错的比较明显了，复合语句即大括号中的语句， 显然其作用域只在大括号所在范围内。void example()12...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -22,12 +21,24 @@
     <link rel="icon" href="/images/favicon.ico">
     
 
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
     <main class="app">
-        <header class="header clearfix">
+        <header id="header" class="header clearfix">
     <div id="nav" class="nav">
     <div class="nav-mobile">
         <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
@@ -41,7 +52,7 @@
                 <span class="nav-text">首页</span>
             </a>
         
-            <a class="nav-item" href="/2019/07/15/标签#tags">
+            <a class="nav-item" href="/2019/07/15/标签">
                 <span class="nav-text">标签</span>
             </a>
         
@@ -74,7 +85,9 @@
 
 </header>
 
-        <div id="content" class="content"><article class="article" itemscope="" itemprop="blogPost">
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper">
+                <article class="article" itemscope="" itemprop="blogPost">
     
     <header class="article-header">
         
@@ -236,6 +249,13 @@ puc中的后两个字节没有发生变化，因此其值依旧为0，
 
 
 
+<a id="pagenext" href="/2018/07/25/C语言数据结构相关/C语言中的可变参数列表/" class="article-next" title="C语言中的可变参数列表"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2018/08/27/C语言数据结构相关/小Q的歌单/" class="article-prev" title="小Q的歌单"><i class="icon-arrow-left"></i></a>
+
+
+
 <div class="comments">
     <div id="comments"></div>
     <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
@@ -255,7 +275,9 @@ puc中的后两个字节没有发生变化，因此其值依旧为0，
     </script>
 </div>
 
-</div>
+
+            </div>
+        </div>
         <footer class="footer">
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
 
@@ -297,7 +319,7 @@ puc中的后两个字节没有发生变化，因此其值依旧为0，
             if (doing) {
                 return;
             }
-            
+
             if (nodes.aside.hasClass('panel-show')) {
                 nodes.aside.addClass('mobile-close');
             } else {
@@ -316,9 +338,29 @@ puc中的后两个字节没有发生变化，因此其值依旧为0，
     });
     </script>
     
-        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script src="/js/scrollspy.min.js"></script>
         <script type="text/javascript">
         $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
         </script>
     
 
