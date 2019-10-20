@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+
+    
+
+    
+
+    <title>Shell之sed命令 | Rohdea&#39;s blog</title>
+    <meta name="author" content="Rohdea">
+    <meta name="keywords" content="">
+    <meta name="description" content="&amp;quot;sed is a stream editor.A stream editor is used to perform basic text transformations on an input stream(a file or input from  a  pipeline)&amp;quot;sed: stream editor.典型用途文本替换选择性打印文本文件从文本文件的某处开始编辑无交互式文本编辑工作流程sed 遵循一个简单的工作流：读取、执行和输出。读取s...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
+    <link rel="alternate" href="/atom.xml" title="Rohdea&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Rohdea&#39;s blog</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/#about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#典型用途"><span class="toc-number">1.</span> <span class="toc-text">典型用途</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工作流程"><span class="toc-number">2.</span> <span class="toc-text">工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#读取"><span class="toc-number">2.1.</span> <span class="toc-text">读取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#执行"><span class="toc-number">2.2.</span> <span class="toc-text">执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输出"><span class="toc-number">2.3.</span> <span class="toc-text">输出</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本用法"><span class="toc-number">3.</span> <span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#选项"><span class="toc-number">3.1.</span> <span class="toc-text">选项</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#命令"><span class="toc-number">3.2.</span> <span class="toc-text">命令</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper">
+                <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            Shell之sed命令
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2019/10/09/Linux相关/Shell之sed命令/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-10-08T16:00:00.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Linux/">Linux</a>, <a class="article-tag-link" href="/tags/Shell/">Shell</a>, <a class="article-tag-link" href="/tags/sed/">sed</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <pre><code>&quot;sed is a stream editor.
+A stream editor is used to perform basic text transformations on an input stream(a file or input from  a  pipeline)&quot;
+
+sed: stream editor.</code></pre><h4 id="典型用途"><a href="#典型用途" class="headerlink" title="典型用途"></a>典型用途</h4><ul>
+<li>文本替换</li>
+<li>选择性打印文本文件</li>
+<li>从文本文件的某处开始编辑</li>
+<li>无交互式文本编辑</li>
+</ul>
+<h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><p>sed 遵循一个简单的工作流：读取、执行和输出。</p>
+<h5 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h5><p>sed 从输入流（文件、管道或标准输入）读取数据到模式缓冲区。</p>
+<h5 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h5><p>所有 sed 命令对模式缓冲区的数据顺序执行。命令默认作用于所有行，除非指定某一行或几行。</p>
+<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>sed 将处理过的文本输出至输出流。输出数据后，模式缓冲区为空，该过程不断重复，直到文件耗尽。</p>
+<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p><code>sed [选项]... {脚本/脚本文件} [输入文件]...</code></p>
+<h5 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h5><p><code>-n</code> ：取消自动打印模式空间，同 <code>--quiet</code> <code>--silence</code>.</p>
+<p><code>-e 脚本</code> : 添加脚本到执行列表，通过该选项可以使用多个执行命令。同 <code>--expression</code>.</p>
+<p><code>-f 脚本文件</code> : 添加脚本文件到执行列表。同 <code>--file</code>.</p>
+<p><code>-i</code> : 直接将输出替换原文件，可以直接修改文件内容，慎用。同 <code>--in-place</code>.</p>
+<p>未完待续…</p>
+<h5 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h5><p><code>d</code> : 删除当前模式空间。可以使用指定行号， <code>,</code> 分隔可指定一个范围内的多行。</p>
+<p><code>p</code> : 打印当前模式空间。同 <code>d</code> 可指定行号。</p>
+<p><code>$</code> : 可以使用该符号打印最后一行内容，也可用 <code>3,$</code> 表示第三行到最后一行。</p>
+<p><code>+</code> : 例： <code>&#39;2,+3 p&#39;</code> 即代表打印第二行到第二行后的三行。</p>
+<p><code>M,N</code> : 代表从第M行到第N行。M、N可以是具体的行号，可以是匹配的字符串，也可以是 <code>^</code> 和 <code>$</code> ，也可使在行号前使用 <code>+</code> 。</p>
+<p><code>M~n</code> : 即第M行开始，处理第M行及后续的每n行。</p>
+<p><code>/Str/</code> : 例 <code>sed -n &#39;/Str/ p&#39;</code> 表示打印含有字符串 <code>Str</code> 的行。</p>
+<p><code>w filename</code> : 将模式空间中的内容写入filename文件中。可以指定行，也可以指定模式匹配。</p>
+<p><code>a</code> : 即追加内容，默认为追加内容到每一行，除非指定行号或模式匹配。</p>
+<p><code>c</code> : 即修改行内容，默认修改每一行内容，除非指定行号或模式匹配。注：该命令不能使用 <code>+</code> 。</p>
+<p><code>i</code> : 类似于 <code>a</code> 命令，在当前模式空间内行的前一行插入内容。默认插入内容到每一行，除非指定行号或模式匹配。</p>
+<p><code>y/char_list1/char_list2/</code> : 字符转换命令，基于两个字符列表替换相应字符。</p>
+<p><code>l</code> : 可以显示文本中的隐藏字符，如行末符 <code>$</code> <code>\t</code> 等。同样可以指定行号和模式匹配。还可以在其后跟数字在每行指定字符处换行。</p>
+<p><code>q</code> : 退出命令。同样支持指定行号和模式匹配。 例：<code>&#39;3 q&#39;</code> ,将会在第三行退出sed处理。</p>
+<p><code>[address]r filename</code> : 将filename中的内容读取到指定位置。</p>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2019/09/14/Markdown示例/" class="article-next" title=""><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2019/10/09/Linux相关/正则表达式/" class="article-prev" title="正则表达式"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "6de9c64db347eac81625",
+        clientSecret: "596c6a39564d9341169964c3e695ee59fb915324",
+        repo: "rohdea0826.github.io",
+        owner: "rohdea0826",
+        admin: ["rohdea0826"],
+        id: "2019/10/09/Linux相关/Shell之sed命令",
+        distractionFreeMode: true,
+        title: "Shell之sed命令",
+        body: "http://yoursite.com/2019/10/09/Linux相关/Shell之sed命令/",
+        labels: ["Linux","Shell","sed"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

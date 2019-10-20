@@ -133,6 +133,160 @@
                 
     <article class="article" itemscope="" itemprop="blogPost">
     
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2019/10/10/数通设备相关/SEP-华为私有环网协议/">SEP-华为私有链路层环网协议</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-10-10T00:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/SEP/">SEP</a>, <a class="article-tag-link" href="/tags/数据链路层/">数据链路层</a>, <a class="article-tag-link" href="/tags/环网/">环网</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="SEP简介"><a href="#SEP简介" class="headerlink" title="SEP简介"></a>SEP简介</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><pre><code>SEP：Smart Ethernet Protection，即智能以太网保护
+是一种专用于以太网链路层的环网协议，以SEP段为基本单位。
+SEP段就是由一组配置了相同的SEP段ID和控制VLAN且互连的二层交换设备群体构成。</code></pre>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2019/10/09/Linux相关/正则表达式/">正则表达式</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-10-08T16:00:00.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Linux/">Linux</a>, <a class="article-tag-link" href="/tags/RegularEX/">RegularEX</a>, <a class="article-tag-link" href="/tags/Shell/">Shell</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <pre><code>^: 字符开头
+
+$: 字符结尾
+
+[]:匹配字符集合
+
+
+
+[0-9]: 数字
+
+[a-z]: 字母
+
++: 代表前面的字符必须至少出现一次
+
+*: 代表前面的字符可以出现零次、一次或多次
+
+?: 代表前面的字符可以出现零次或一次</code></pre>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2019/10/09/Linux相关/Shell之sed命令/">Shell之sed命令</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-10-08T16:00:00.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Linux/">Linux</a>, <a class="article-tag-link" href="/tags/Shell/">Shell</a>, <a class="article-tag-link" href="/tags/sed/">sed</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <pre><code>&quot;sed is a stream editor.
+A stream editor is used to perform basic text transformations on an input stream(a file or input from  a  pipeline)&quot;
+
+sed: stream editor.</code></pre><h4 id="典型用途"><a href="#典型用途" class="headerlink" title="典型用途"></a>典型用途</h4><ul>
+<li>文本替换</li>
+<li>选择性打印文本文件</li>
+<li>从文本文件的某处开始编辑</li>
+<li>无交互式文本编辑</li>
+</ul>
+<h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><p>sed 遵循一个简单的工作流：读取、执行和输出。</p>
+<h5 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h5><p>sed 从输入流（文件、管道或标准输入）读取数据到模式缓冲区。</p>
+<h5 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h5><p>所有 sed 命令对模式缓冲区的数据顺序执行。命令默认作用于所有行，除非指定某一行或几行。</p>
+<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>sed 将处理过的文本输出至输出流。输出数据后，模式缓冲区为空，该过程不断重复，直到文件耗尽。</p>
+<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p><code>sed [选项]... {脚本/脚本文件} [输入文件]...</code></p>
+<h5 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h5><p><code>-n</code> ：取消自动打印模式空间，同 <code>--quiet</code> <code>--silence</code>.</p>
+<p><code>-e 脚本</code> : 添加脚本到执行列表，通过该选项可以使用多个执行命令。同 <code>--expression</code>.</p>
+<p><code>-f 脚本文件</code> : 添加脚本文件到执行列表。同 <code>--file</code>.</p>
+<p><code>-i</code> : 直接将输出替换原文件，可以直接修改文件内容，慎用。同 <code>--in-place</code>.</p>
+<p>未完待续…</p>
+<h5 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h5><p><code>d</code> : 删除当前模式空间。可以使用指定行号， <code>,</code> 分隔可指定一个范围内的多行。</p>
+<p><code>p</code> : 打印当前模式空间。同 <code>d</code> 可指定行号。</p>
+<p><code>$</code> : 可以使用该符号打印最后一行内容，也可用 <code>3,$</code> 表示第三行到最后一行。</p>
+<p><code>+</code> : 例： <code>&#39;2,+3 p&#39;</code> 即代表打印第二行到第二行后的三行。</p>
+<p><code>M,N</code> : 代表从第M行到第N行。M、N可以是具体的行号，可以是匹配的字符串，也可以是 <code>^</code> 和 <code>$</code> ，也可使在行号前使用 <code>+</code> 。</p>
+<p><code>M~n</code> : 即第M行开始，处理第M行及后续的每n行。</p>
+<p><code>/Str/</code> : 例 <code>sed -n &#39;/Str/ p&#39;</code> 表示打印含有字符串 <code>Str</code> 的行。</p>
+<p><code>w filename</code> : 将模式空间中的内容写入filename文件中。可以指定行，也可以指定模式匹配。</p>
+<p><code>a</code> : 即追加内容，默认为追加内容到每一行，除非指定行号或模式匹配。</p>
+<p><code>c</code> : 即修改行内容，默认修改每一行内容，除非指定行号或模式匹配。注：该命令不能使用 <code>+</code> 。</p>
+<p><code>i</code> : 类似于 <code>a</code> 命令，在当前模式空间内行的前一行插入内容。默认插入内容到每一行，除非指定行号或模式匹配。</p>
+<p><code>y/char_list1/char_list2/</code> : 字符转换命令，基于两个字符列表替换相应字符。</p>
+<p><code>l</code> : 可以显示文本中的隐藏字符，如行末符 <code>$</code> <code>\t</code> 等。同样可以指定行号和模式匹配。还可以在其后跟数字在每行指定字符处换行。</p>
+<p><code>q</code> : 退出命令。同样支持指定行号和模式匹配。 例：<code>&#39;3 q&#39;</code> ,将会在第三行退出sed处理。</p>
+<p><code>[address]r filename</code> : 将filename中的内容读取到指定位置。</p>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
     <section class="article-body markdown-body">
         
         <h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><blockquote>
@@ -179,6 +333,48 @@
         
         <p class="article-more-link">
             <a href="/2019/08/14/客户支持服务规范/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2019/08/05/数通设备相关/HCNA-CloudComputing_笔记/HCNA-CloudComputing_笔记/">HCNA-Cloud Computing_笔记</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-08-05T02:36:39.000Z" itemprop="datePublished">2019-08-05</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/HCNA/">HCNA</a>, <a class="article-tag-link" href="/tags/总结/">总结</a>, <a class="article-tag-link" href="/tags/笔记/">笔记</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>学习笔记导图</p>
+        
+        <p class="article-more-link">
+            <a href="/2019/08/05/数通设备相关/HCNA-CloudComputing_笔记/HCNA-CloudComputing_笔记/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
@@ -278,48 +474,6 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2019/08/05/数通设备相关/HCNA-CloudComputing_笔记/HCNA-CloudComputing_笔记/">HCNA-Cloud Computing_笔记</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-08-05T02:36:39.000Z" itemprop="datePublished">2019-08-05</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/HCNA/">HCNA</a>, <a class="article-tag-link" href="/tags/总结/">总结</a>, <a class="article-tag-link" href="/tags/笔记/">笔记</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>学习笔记导图</p>
-        
-        <p class="article-more-link">
-            <a href="/2019/08/05/数通设备相关/HCNA-CloudComputing_笔记/HCNA-CloudComputing_笔记/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope="" itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
             <a href="/2019/08/05/数通设备相关/HCNA入门_笔记/HCNA入门_笔记/">HCNA入门_笔记</a>
         </h1>
         
@@ -403,154 +557,10 @@ quit</code></pre>
 </article>
 
 
-    <article class="article" itemscope="" itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/07/15/数通设备相关/eNSP中Telnet基本配置命令/">eNSP中Telnet基本配置命令</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-07-15T00:00:00.000Z" itemprop="datePublished">2019-07-15</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Telnet/">Telnet</a>, <a class="article-tag-link" href="/tags/VRP/">VRP</a>, <a class="article-tag-link" href="/tags/eNSP/">eNSP</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>首先新建账户，将账户服务类型设置为telnet及ssh，用户等级设为level3或更高。</p>
-<pre><code>aaa
-local-user rohdea password cipher rohdea123
-local-user rohdea service-type telnet ssh
-local-user rohdea privilege level 3
-quit</code></pre>
-        
-        <p class="article-more-link">
-            <a href="/2019/07/15/数通设备相关/eNSP中Telnet基本配置命令/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope="" itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/07/13/数通设备相关/交换机路由器基本操作命令总结/交换机路由器基本操作命令总结/">交换机路由器基本操作命令总结</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-07-13T02:32:53.000Z" itemprop="datePublished">2019-07-13</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Switch/">Switch</a>, <a class="article-tag-link" href="/tags/VRP/">VRP</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h3 id="VRP"><a href="#VRP" class="headerlink" title="VRP"></a>VRP</h3><p>通用路由平台VRP（Versatile Routing Platform）是华为公司数据通信产品的通用操作系统平台。<br>本篇文章将根据以下题目总结一些基本操作</p>
-<p><img src="http://www.littlebitdream.com/_posts/%E6%95%B0%E9%80%9A%E8%AE%BE%E5%A4%87%E7%9B%B8%E5%85%B3/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/image1.png" alt="image1"></p>
-<ol>
-<li>要求PC1访问PC3在SW1-SW3上实现负载分担，访问PC2经过R1.要求使用ospf实现</li>
-</ol>
-        
-        <p class="article-more-link">
-            <a href="/2019/07/13/数通设备相关/交换机路由器基本操作命令总结/交换机路由器基本操作命令总结/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope="" itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2018/11/10/Linux相关/初识进程/">初识进程</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2018-11-10T00:00:00.000Z" itemprop="datePublished">2018-11-10</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Linux/">Linux</a>, <a class="article-tag-link" href="/tags/进程/">进程</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>说起进程，就得从计算机的最底层说起，因为硬件体系决定了软件的行为。 只有清楚了计算机的大致原理，才能更好的理解进程。</p>
-<h1 id="冯诺伊曼体系结构"><a href="#冯诺伊曼体系结构" class="headerlink" title="冯诺伊曼体系结构"></a>冯诺伊曼体系结构</h1><p>现代计算机的体系结构就是冯诺依曼体系结构，主要包含五大部件：</p>
-<ul>
-<li><p><strong>输入设备</strong>：鼠标、键盘等</p>
-</li>
-<li><p><strong>输出设备</strong>：显示器、打印机等</p>
-</li>
-<li><p><strong>存储器</strong>：内存</p>
-</li>
-<li><p><strong>控制器和运算器</strong>：处理器</p></li></ul>
-        
-        <p class="article-more-link">
-            <a href="/2018/11/10/Linux相关/初识进程/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
 
 
 <nav class="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
 </nav>
 
 

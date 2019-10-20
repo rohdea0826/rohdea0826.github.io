@@ -136,6 +136,150 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2019/07/15/数通设备相关/eNSP中Telnet基本配置命令/">eNSP中Telnet基本配置命令</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-07-15T00:00:00.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Telnet/">Telnet</a>, <a class="article-tag-link" href="/tags/VRP/">VRP</a>, <a class="article-tag-link" href="/tags/eNSP/">eNSP</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>首先新建账户，将账户服务类型设置为telnet及ssh，用户等级设为level3或更高。</p>
+<pre><code>aaa
+local-user rohdea password cipher rohdea123
+local-user rohdea service-type telnet ssh
+local-user rohdea privilege level 3
+quit</code></pre>
+        
+        <p class="article-more-link">
+            <a href="/2019/07/15/数通设备相关/eNSP中Telnet基本配置命令/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2019/07/13/数通设备相关/交换机路由器基本操作命令总结/交换机路由器基本操作命令总结/">交换机路由器基本操作命令总结</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-07-13T02:32:53.000Z" itemprop="datePublished">2019-07-13</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Switch/">Switch</a>, <a class="article-tag-link" href="/tags/VRP/">VRP</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="VRP"><a href="#VRP" class="headerlink" title="VRP"></a>VRP</h3><p>通用路由平台VRP（Versatile Routing Platform）是华为公司数据通信产品的通用操作系统平台。<br>本篇文章将根据以下题目总结一些基本操作</p>
+<p><img src="http://www.littlebitdream.com/_posts/%E6%95%B0%E9%80%9A%E8%AE%BE%E5%A4%87%E7%9B%B8%E5%85%B3/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/image1.png" alt="image1"></p>
+<ol>
+<li>要求PC1访问PC3在SW1-SW3上实现负载分担，访问PC2经过R1.要求使用ospf实现</li>
+</ol>
+        
+        <p class="article-more-link">
+            <a href="/2019/07/13/数通设备相关/交换机路由器基本操作命令总结/交换机路由器基本操作命令总结/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2018/11/10/Linux相关/初识进程/">初识进程</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2018-11-10T00:00:00.000Z" itemprop="datePublished">2018-11-10</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Linux/">Linux</a>, <a class="article-tag-link" href="/tags/进程/">进程</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>说起进程，就得从计算机的最底层说起，因为硬件体系决定了软件的行为。 只有清楚了计算机的大致原理，才能更好的理解进程。</p>
+<h1 id="冯诺伊曼体系结构"><a href="#冯诺伊曼体系结构" class="headerlink" title="冯诺伊曼体系结构"></a>冯诺伊曼体系结构</h1><p>现代计算机的体系结构就是冯诺依曼体系结构，主要包含五大部件：</p>
+<ul>
+<li><p><strong>输入设备</strong>：鼠标、键盘等</p>
+</li>
+<li><p><strong>输出设备</strong>：显示器、打印机等</p>
+</li>
+<li><p><strong>存储器</strong>：内存</p>
+</li>
+<li><p><strong>控制器和运算器</strong>：处理器</p></li></ul>
+        
+        <p class="article-more-link">
+            <a href="/2018/11/10/Linux相关/初识进程/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope="" itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2018/10/30/Linux相关/Linux c编程之gdb的使用/">Linux c编程之gdb的使用</a>
         </h1>
         
@@ -436,53 +580,10 @@
 </article>
 
 
-    <article class="article" itemscope="" itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2018/06/23/C语言数据结构相关/217.存在重复元素/">217.存在重复元素</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2018-06-23T03:21:54.000Z" itemprop="datePublished">2018-06-23</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/C语言/">C语言</a>, <a class="article-tag-link" href="/tags/leetcode/">leetcode</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>给定一个整数数组，判断是否存在重复元素。</p>
-<p>如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。</p>
-        
-        <p class="article-more-link">
-            <a href="/2018/06/23/C语言数据结构相关/217.存在重复元素/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
 
 
 <nav class="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
 </nav>
 
 
